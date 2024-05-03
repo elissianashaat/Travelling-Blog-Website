@@ -1,0 +1,30 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container">
+    <h1 class="mb-4">Blog Articles</h1>
+    <% articles.forEach((article, index) => { %>
+        <div class="card mt-4">
+            <div class="card-body">
+                <h4 class="card-title">
+                    <%= article.title %>
+                </h4>
+                <div class="card-subtitle text-muted mb-2">
+                    <%= article.createDate.toLocaleDateString() %>
+                </div>
+                <div class="card-text mb=2">
+                    <p>
+                        <%= article.paragraph %>
+                    </p>
+                 </div>
+                 <form class="form" action="/delete-article/<%= index %>" method="post">
+                    <button class="delete" type="submit">Delete</button>
+                </form>
+                <form class="form" onclick="openEditForm(this)" data-index="<%= index %>" method="post">
+                    <button class="edit" type="submit">Edit</button>
+                </form>
+            </div>
+        </div>
+    <% }); %> 
+</div>
+
+<%- include("partials/footer.ejs")%>
