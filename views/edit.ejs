@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Article</title>
+    <!-- Include your CSS and other head elements here -->
+</head>
+<body>
+    <h1>Edit Article</h1>
+    <form action="/save/<%= index %>" method="post">
+        <div>
+            <!--
+            This input field allows users to edit the title of the article.
+            id="title" is used for accessibility and to link with the label.
+            name="title" is the name of the field in the form submission.
+            value="<%= //article.title %>" pre-fills the input with the current title of the article using EJS syntax.-->
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" value="<%= article.title %>">
+        </div>
+        <div>
+            <label for="paragraph">Paragraph:</label>
+            <textarea id="paragraph" name="paragraph"><%= article.paragraph %></textarea>
+        </div>
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>

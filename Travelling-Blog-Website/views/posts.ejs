@@ -8,6 +8,9 @@
                 <h4 class="card-title">
                     <%= article.title %>
                 </h4>
+                <div class="card-subtitle text-muted mb-2">
+                    <%= article.createDate.toLocaleDateString() %>
+                </div>
                 <div class="card-text mb=2">
                     <p>
                         <%= article.paragraph %>
@@ -16,7 +19,7 @@
                  <form class="form" action="/delete-article/<%= index %>" method="post">
                     <button class="delete" type="submit">Delete</button>
                 </form>
-                <form class="form" action="/edit/<%= index %>" method="get">
+                <form class="form" onclick="openEditForm(this)" data-index="<%= index %>" method="post">
                     <button class="edit" type="submit">Edit</button>
                 </form>
             </div>
